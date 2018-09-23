@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>clicker</title>
+</head>
+<body>
+		<center>
+	<h1 id="points">POINTS = 0</h1>
+	<img id="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtZG8Qa59brjJunenwVcF4KXQciU7oUm4-948Dnbs2R7HIBKHm">
+	<br><br>
+	<button id = "upgrade">BUY UPGRADE (20points)</button>
+	<br>
+	<button id = "Grandma">BUY Your Grandma (50points)</button>
+	</center>
+	<style type="text/css">
+		button {
+			background: blue;
+			font-size:"50px";
+			border: 10px solid black;
+			border-radius: 40px;
+			color:white;
+		}
+	</style>
+	<script type="text/javascript">
+		document.getElementById("image").onclick = click;
+		document.getElementById("upgrade").onclick = upgrade;
+		document.getElementById("Grandma").onclick = Grandma;
+		var points = 0;
+		var power = 1;
 
+		function click() {
+			points = points + power; //increases the points
+			//alert ("the cookie is clicked");
+			document.getElementById("points").innerHTML = "POINTS = " + points;
+		}
+
+		function upgrade() {
+			var cost = power * 5;
+			if (points > cost) {
+				points = points - 20;
+				power = 2;
+				document.getElementById("points").innerHTML = "POINTS = " + points;
+			}
+		}
+		function Grandma() {
+			if (points>50) {
+				points = points - 50;
+				setInterval(doThisEvery5seconds, 5000);
+			}
+		}
+		function doThisEvery5seconds() {
+			points = points + 103;
+			document.getElementById("points").innerHTML = "POINTS = " + points;
+		}
+
+	</script>
+</body>
+</html>
