@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fake cookie clicker</title>
+</head>
+<body>
+<h1 id="points">Points = 0</h1>
+	<img id="cookie" src="http://purepng.com/public/uploads/large/purepng.com-cookiefood-chocolate-bakery-sweet-tasty-eat-cookie-biscuit-941524599982s6zsh.png" width="600px">
+	<br>
+	<button id="upgrade">[cost = 20 cookies] Superclicker</button>
+	<br><br>
+	<button id="Worker">[cost=100] Hire Worker</button>
+
+	<style type="text/css"> 
+	button { 
+			background: blue;
+			font-size: 25px;
+			border: 10px solid black;
+			color: white;
+			border-radius: 6px;
+	 }
+
+	</style>
+<script type="text/javascript">
+	document.getElementById("cookie").onclick = click; 
+	document.getElementById("upgrade").onclick = upgrade;
+	document.getElementById("Worker").onclick = worker;
+
+	var points = 0;
+	var power = 1;
+	function click() {
+		points = points + power;
+		document.getElementById("points").innerHTML = "points = " + points;
+	}
+	function upgrade() {
+		if (points > 20) {
+			points = points - 20;
+			power = 2;
+			document.getElementById("points").innerHTML = "points = " + points;
+		}
+	}
+
+	function worker() {
+		if (points > 100) {
+			points = points - 100;
+			setInterval(doThisEvery1second, 1000)
+		}
+	}
+
+	function doThisEvery1second() {
+		points = points + 10;
+		document.getElementById("points").innerHTML = "points = " + points;
+	}
+</script>
+</body>
+</html>
