@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Fake cookie clicker</title>
+</head>
+<body>
+	<!-- HTML -->
+	<center>
+		<img id="cookie" src="https://vignette.wikia.nocookie.net/steven-universe/images/7/70/Cookie.png/revision/latest?cb=20160822165305" width="300px">
+		<br><br>
+		<h1 id="points">POINTS=</h1>
+		<br>
+		<button id="upgrade">increase power (20points)</button>
+		<br><br>
+		<button id="grandma">buy grandma (50points)</button>
+	</center>
+	
+	<!-- STYLE -->
+	<style type="text/css">
+		button {
+			background: green;
+			font-size: 20px;
+			border: 10px solid black;
+			border-radius: 40px;
+			color: white;
+		}
+
+	</style>
+	<!-- JAVASCRIPT -->
+	<script type="text/javascript">
+		document.getElementById("cookie").onclick = click;
+		document.getElementById("upgrade").onclick = upgrade;
+		document.getElementById("grandma").onclick = buyGrandma;
+
+		var points = 0;
+		var power = 3;
+
+
+		function click() {
+			// this will run when image is clicked
+			points = points + power;
+			document.getElementById("points").innerHTML = "POINTS = " + points;
+		}
+		function upgrade() {
+			if (points > 20) {
+				points = points - 20;
+				power = power + 4;
+			}
+		}
+		function buyGrandma() {
+			if (points > 50) {
+				points = points - 50;
+				// start doing stuff every 5 seconds.
+				setInterval(doThisEvery5seconds, 500);
+			}
+		}
+
+		function doThisEvery5seconds() {
+			// this will run every 5 seconds
+			points = points + 2;
+			document.getElementById("points").innerHTML = "POINTS = " + points;
+		}
+
+	</script>
+</body>
+</html>
