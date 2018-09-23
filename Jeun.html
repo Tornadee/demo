@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>cookie clicker</title>
+</head>
+<body>
+	<h1 id="point">point = 0</h1>
+
+	<img id= "image" src ="https://melissagalt.com/wp-content/uploads//2011/06/cookie-with-sunglasses-300x288.gif" width="500px"> 
+
+	<br><br>
+	<button id="cursor">buy cursor: 10 points</button>
+	<br><br>
+	<button id="grandma">buy grandma: 20 points</button>
+<br>
+
+	<script type="text/javascript">
+	
+		document.getElementById("image").onclick = click;
+		document.getElementById("cursor").onclick = cursor;
+		document.getElementById("grandma").onclick = grandma;
+		var point = 0; 
+		var power = 1;
+		function click() {
+			
+			point = point + power;
+			document.getElementById("point").innerHTML = "point = " + point; 
+		}
+
+		function cursor() {
+			if (point > 10) {
+				point = point - 10; 
+				power = power + 2; 
+				document.getElementById("point").innerHTML = "point =" + point; 
+			}
+
+		}
+
+		function grandma() {
+			if (point > 20) {
+			point = point - 20; 
+			setInterval(doThisEvery5seconds, 500);
+		}
+
+function doThisEvery5seconds() {
+	points = points + 2
+	document.getElementById("grandma").onclick = grandma;
+}
+	</script>
+
+	<style type="text/css">
+		
+		button {
+			background: blue; 
+			font-size: 30px; 
+			border: 10px solid blue;
+
+		}
+	</style>
+</body>
+</html>
